@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+import matplotlib.pyplot as plt
+dataset=pd.read_csv('https://raw.githubusercontent.com/AdiPersonalWorks/Random/master/student_scores%20-%20student_scores.csv')
+print(dataset.shape)
+print(dataset.head(5))
+plt.xlabel('Hours')
+plt.ylabel('Scores')
+plt.scatter(dataset.Hours,dataset.Scores,color="blue",marker="*")
+Hours=dataset.drop('Scores',axis='columns')
+Hours
+from sklearn.linear_model import LinearRegression
+model=linear_model.LinearRegression()
+model.fit(Hours,Scores)
+student_studies=[[9.25]]
+Predict_result=model.predict(student_studies)
+print(Predict_result)
